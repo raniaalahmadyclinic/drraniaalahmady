@@ -295,6 +295,80 @@
             margin-top: 6px;
         }
 
+        .team-section {
+            background: #fff;
+        }
+
+        .team-card {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 36px;
+            align-items: center;
+            background: linear-gradient(135deg, #fff 0%, #f9f6e9 100%);
+            border-radius: 32px;
+            padding: 42px;
+            box-shadow: 0 12px 34px rgba(0,0,0,0.06);
+            border: 1px solid rgba(214,166,64,0.28);
+        }
+
+        .team-card h2 {
+            color: var(--primary-dark);
+            font-size: 2.1rem;
+            font-weight: 900;
+            margin-bottom: 18px;
+        }
+
+        .team-card p {
+            color: #444;
+            font-size: 1.08rem;
+            margin-bottom: 16px;
+        }
+
+        .team-points {
+            display: grid;
+            gap: 12px;
+            margin-top: 18px;
+        }
+
+        .team-point {
+            background: #fff;
+            border-radius: 18px;
+            padding: 14px 18px;
+            border-right: 4px solid var(--accent-gold);
+            font-weight: 800;
+            color: var(--primary-olive);
+        }
+
+        .team-visual {
+            background: #fff;
+            border-radius: 28px;
+            padding: 18px;
+            text-align: center;
+            box-shadow: inset 0 0 0 1px rgba(85,113,47,0.18);
+            border: 1px solid rgba(214,166,64,0.35);
+        }
+
+        .team-visual img {
+            width: 100%;
+            border-radius: 22px;
+            display: block;
+            border: 3px solid var(--accent-gold);
+            box-shadow: 0 12px 28px rgba(0,0,0,0.12);
+            object-fit: cover;
+        }
+
+        .team-visual h3 {
+            color: var(--primary-olive);
+            font-size: 1.5rem;
+            margin-top: 18px;
+            font-weight: 900;
+        }
+
+        .team-visual p {
+            color: #555;
+            margin-top: 8px;
+        }
+
         .about-box {
             background: #fff;
             border-radius: 28px;
@@ -382,80 +456,6 @@
         .service-card p {
             color: #555;
             font-size: 0.98rem;
-        }
-
-        .team-section {
-            background: #fff;
-        }
-
-        .team-card {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 36px;
-            align-items: center;
-            background: linear-gradient(135deg, #fff 0%, #f9f6e9 100%);
-            border-radius: 32px;
-            padding: 42px;
-            box-shadow: 0 12px 34px rgba(0,0,0,0.06);
-            border: 1px solid rgba(214,166,64,0.28);
-        }
-
-        .team-card h2 {
-            color: var(--primary-dark);
-            font-size: 2.1rem;
-            font-weight: 900;
-            margin-bottom: 18px;
-        }
-
-        .team-card p {
-            color: #444;
-            font-size: 1.08rem;
-            margin-bottom: 16px;
-        }
-
-        .team-points {
-            display: grid;
-            gap: 12px;
-            margin-top: 18px;
-        }
-
-        .team-point {
-            background: #fff;
-            border-radius: 18px;
-            padding: 14px 18px;
-            border-right: 4px solid var(--accent-gold);
-            font-weight: 800;
-            color: var(--primary-olive);
-        }
-
-        .team-visual {
-            background: #fff;
-            border-radius: 28px;
-            padding: 18px;
-            text-align: center;
-            box-shadow: inset 0 0 0 1px rgba(85,113,47,0.18);
-            border: 1px solid rgba(214,166,64,0.35);
-        }
-
-        .team-visual img {
-            width: 100%;
-            border-radius: 22px;
-            display: block;
-            border: 3px solid var(--accent-gold);
-            box-shadow: 0 12px 28px rgba(0,0,0,0.12);
-            object-fit: cover;
-        }
-
-        .team-visual h3 {
-            color: var(--primary-olive);
-            font-size: 1.5rem;
-            margin-top: 18px;
-            font-weight: 900;
-        }
-
-        .team-visual p {
-            color: #555;
-            margin-top: 8px;
         }
 
         .contact-section {
@@ -632,8 +632,8 @@
             <div class="brand-mini">أ.د. رانيا الأحمدي</div>
 
             <div class="nav-links">
-                <a href="#about">نبذة عن العيادة</a>
                 <a href="#leadership">ريادة نسائية</a>
+                <a href="#about">نبذة عن العيادة</a>
                 <a href="#services">الخدمات</a>
                 <a href="#contact">تواصل معنا</a>
             </div>
@@ -701,6 +701,42 @@
         </div>
     </div>
 
+    <section id="leadership" class="section team-section">
+        <div class="container">
+            <div class="team-card">
+                <div class="team-visual">
+                    <img src="dr-rania-team.png" alt="طاقم طبي نسائي متكامل">
+                    <h3>طاقم نسائي متكامل</h3>
+                    <p>
+                        فريق طبي نسائي داعم يراعي الخصوصية والراحة النفسية للمريضة في كل خطوة.
+                    </p>
+                </div>
+
+                <div>
+                    <span class="hero-kicker">ريادة نسائية في عالم الجراحة</span>
+                    <h2>أول أستاذة جراحة تقود فريقًا نسائيًا</h2>
+
+                    <p>
+                        تمثل الدكتورة رانيا الأحمدي نموذجًا ملهمًا للريادة النسائية في عالم الجراحة،
+                        بعد مسيرة علمية ومهنية طويلة في واحد من أدق وأصعب التخصصات الطبية.
+                    </p>
+
+                    <p>
+                        استطاعت أن تكسر الصورة النمطية المرتبطة بغرف العمليات، وأن تقدم نموذجًا عمليًا لفريق جراحي
+                        متكامل من السيدات، يضم طبيبات تخدير ومساعدات جراحة وتمريضًا، بما يخلق بيئة أكثر راحة
+                        وأمانًا للمريضات.
+                    </p>
+
+                    <div class="team-points">
+                        <div class="team-point">خبرة واسعة في جراحات الثدي والشرج والمناظير.</div>
+                        <div class="team-point">استخدام تقنيات حديثة وفق تقييم الحالة الطبية.</div>
+                        <div class="team-point">رعاية إنسانية تشرح وتطمئن قبل أي إجراء.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <section id="about" class="section">
         <div class="container">
             <div class="section-title">
@@ -739,42 +775,6 @@
                         <h3>طاقم نسائي متكامل</h3>
                         <p>إجراء العمليات بالتعاون مع طاقم طبي نسائي متكامل قدر الإمكان.</p>
                     </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="leadership" class="section team-section">
-        <div class="container">
-            <div class="team-card">
-                <div>
-                    <span class="hero-kicker">ريادة نسائية في عالم الجراحة</span>
-                    <h2>أول أستاذة جراحة تقود فريقًا نسائيًا</h2>
-
-                    <p>
-                        تمثل الدكتورة رانيا الأحمدي نموذجًا ملهمًا للريادة النسائية في عالم الجراحة،
-                        بعد مسيرة علمية ومهنية طويلة في واحد من أدق وأصعب التخصصات الطبية.
-                    </p>
-
-                    <p>
-                        استطاعت أن تكسر الصورة النمطية المرتبطة بغرف العمليات، وأن تقدم نموذجًا عمليًا لفريق جراحي
-                        متكامل من السيدات، يضم طبيبات تخدير ومساعدات جراحة وتمريضًا، بما يخلق بيئة أكثر راحة
-                        وأمانًا للمريضات.
-                    </p>
-
-                    <div class="team-points">
-                        <div class="team-point">خبرة واسعة في جراحات الثدي والشرج والمناظير.</div>
-                        <div class="team-point">استخدام تقنيات حديثة وفق تقييم الحالة الطبية.</div>
-                        <div class="team-point">رعاية إنسانية تشرح وتطمئن قبل أي إجراء.</div>
-                    </div>
-                </div>
-
-                <div class="team-visual">
-                    <img src="dr-rania-team.png" alt="طاقم طبي نسائي متكامل">
-                    <h3>طاقم نسائي متكامل</h3>
-                    <p>
-                        فريق طبي نسائي داعم يراعي الخصوصية والراحة النفسية للمريضة في كل خطوة.
-                    </p>
                 </div>
             </div>
         </div>
