@@ -3,7 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>أ.د. رانيا الأحمدي | استشاري الجراحة العامة</title>
+    <title>أ.د. رانيا الأحمدي | أستاذ الجراحة العامة</title>
+
+    <meta name="description" content="الموقع الرسمي لعيادة أ.د. رانيا الأحمدي، أستاذ الجراحة العامة بكلية الطب جامعة عين شمس، واستشاري جراحات الثدي والشرج والمناظير.">
     
     <!-- Google Fonts for Arabic Typography -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -11,30 +13,33 @@
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&display=swap" rel="stylesheet">
 
     <style>
-        /* --- إعدادات الألوان والمتغيرات --- */
         :root {
-            --primary-olive: #556B2F;   /* أخضر زيتوني غامق */
-            --primary-dark: #2e3b1b;    /* أخضر داكن جداً للخلفيات */
-            --accent-gold: #DAA520;     /* ذهبي مطفي */
-            --bg-ivory: #FFFFF0;        /* عاجي دافئ */
-            --text-dark: #2C2C2C;       /* أسود ناعم */
-            --text-light: #FFFFFF;      /* أبيض */
+            --primary-olive: #556B2F;
+            --primary-dark: #2E3B1B;
+            --accent-gold: #DAA520;
+            --bg-ivory: #FFFFF0;
+            --soft-cream: #F8F6EA;
+            --text-dark: #2C2C2C;
+            --text-muted: #555555;
+            --text-light: #FFFFFF;
         }
 
-        /* --- التنسيقات العامة --- */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
-            font-family: 'Cairo', sans-serif; /* الخط العربي الرئيسي */
+            font-family: 'Cairo', sans-serif;
             background-color: var(--bg-ivory);
             color: var(--text-dark);
             line-height: 1.8;
             overflow-x: hidden;
-            scroll-behavior: smooth;
         }
 
         h1, h2, h3 {
@@ -47,7 +52,6 @@
             transition: all 0.3s ease;
         }
 
-        /* --- القائمة العلوية (Navigation) --- */
         nav {
             background-color: var(--text-light);
             padding: 15px 0;
@@ -64,17 +68,27 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+            gap: 20px;
+        }
+
+        .logo-text {
+            font-weight: 900;
+            color: var(--primary-olive);
+            font-size: 1.2rem;
+            white-space: nowrap;
         }
 
         .nav-links {
             display: flex;
             gap: 25px;
+            flex-wrap: wrap;
+            justify-content: center;
         }
 
         .nav-links a {
             color: var(--primary-olive);
-            font-weight: 600;
-            font-size: 1.1rem;
+            font-weight: 700;
+            font-size: 1.05rem;
             position: relative;
         }
 
@@ -97,19 +111,19 @@
             width: 100%;
         }
 
-        /* --- قسم الهيرو (الواجهة الرئيسية) --- */
         .hero {
             display: flex;
-            flex-direction: row-reverse; /* عكس الاتجاه لضبط التوزيع في العربية */
+            flex-direction: row-reverse;
             align-items: center;
             justify-content: space-between;
-            padding: 60px 5%;
-            background: linear-gradient(135deg, #fff 0%, #f9fdf9 100%);
+            padding: 70px 5%;
+            background:
+                radial-gradient(circle at top left, rgba(218,165,32,0.12), transparent 30%),
+                linear-gradient(135deg, #ffffff 0%, #f8fbf4 100%);
             min-height: 85vh;
-            gap: 50px;
+            gap: 55px;
         }
 
-        /* العمود الأيمن: المعلومات واللوجو */
         .hero-content {
             flex: 1;
             text-align: center;
@@ -119,23 +133,60 @@
         }
 
         .hero-logo {
-            width: 160px;
-            margin-bottom: 30px;
-            filter: drop-shadow(0 10px 15px rgba(0,0,0,0.1));
-            mix-blend-mode: multiply; /* يدمج اللوجو مع الخلفية ويزيل المربع الأبيض لأي صورة عادية */
+            width: 170px;
+            height: 170px;
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hero-logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            filter: drop-shadow(0 10px 18px rgba(0,0,0,0.12));
+            mix-blend-mode: multiply;
         }
 
         .hero h1 {
-            font-size: 3rem;
-            margin-bottom: 10px;
+            font-size: 3.1rem;
+            margin-bottom: 12px;
             color: var(--primary-dark);
+            font-weight: 900;
         }
 
         .hero .title {
-            font-size: 1.3rem;
-            color: #555;
-            margin-bottom: 25px;
-            font-weight: 600;
+            font-size: 1.25rem;
+            color: var(--text-muted);
+            margin-bottom: 12px;
+            font-weight: 700;
+        }
+
+        .hero .specialty {
+            font-size: 1.12rem;
+            color: var(--primary-olive);
+            margin-bottom: 22px;
+            font-weight: 700;
+        }
+
+        .clinic-phone {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: #ffffff;
+            border: 1px solid rgba(85,107,47,0.25);
+            color: var(--primary-dark);
+            padding: 9px 20px;
+            border-radius: 50px;
+            margin-bottom: 18px;
+            font-weight: 800;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+            direction: rtl;
+        }
+
+        .clinic-phone span {
+            color: var(--accent-gold);
         }
 
         .badge {
@@ -146,8 +197,8 @@
             color: var(--primary-olive);
             padding: 10px 25px;
             border-radius: 50px;
-            font-weight: 700;
-            margin-bottom: 30px;
+            font-weight: 800;
+            margin-bottom: 28px;
             border: 1px solid var(--accent-gold);
             font-size: 1rem;
         }
@@ -157,9 +208,9 @@
             color: var(--text-light);
             padding: 15px 45px;
             border-radius: 50px;
-            font-size: 1.2rem;
-            font-weight: 700;
-            box-shadow: 0 5px 15px rgba(85, 107, 47, 0.4);
+            font-size: 1.18rem;
+            font-weight: 900;
+            box-shadow: 0 8px 20px rgba(85, 107, 47, 0.35);
             border: 2px solid var(--primary-olive);
         }
 
@@ -167,10 +218,9 @@
             background-color: var(--accent-gold);
             border-color: var(--accent-gold);
             transform: translateY(-3px);
-            color: var(--text-dark);
+            color: var(--primary-dark);
         }
 
-        /* العمود الأيسر: صورة الدكتورة */
         .hero-image {
             flex: 1;
             display: flex;
@@ -179,29 +229,43 @@
             position: relative;
         }
 
+        .hero-image::before {
+            content: '';
+            position: absolute;
+            width: 76%;
+            height: 78%;
+            border-radius: 28px;
+            background: rgba(85,107,47,0.12);
+            transform: translate(22px, 22px);
+            z-index: 0;
+        }
+
         .hero-image img {
+            position: relative;
+            z-index: 1;
             max-width: 100%;
             width: 500px;
             height: auto;
-            border-radius: 20px;
-            box-shadow: 20px 20px 0px var(--primary-olive);
+            border-radius: 24px;
+            box-shadow: 18px 18px 0px var(--primary-olive);
             border: 3px solid var(--accent-gold);
             object-fit: cover;
+            background: #fff;
         }
 
-        /* --- قسم نبذة عن العيادة --- */
         .section {
-            padding: 80px 5%;
-            max-width: 1000px;
+            padding: 85px 5%;
+            max-width: 1100px;
             margin: 0 auto;
             text-align: center;
         }
 
         .section h2 {
             font-size: 2.5rem;
-            margin-bottom: 40px;
+            margin-bottom: 38px;
             position: relative;
             display: inline-block;
+            font-weight: 900;
         }
 
         .section h2::after {
@@ -213,61 +277,89 @@
         }
 
         .about-text {
-            font-size: 1.2rem;
+            font-size: 1.18rem;
             color: #444;
             background: #fff;
-            padding: 40px;
-            border-radius: 15px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
-            border-top: 4px solid var(--primary-olive);
+            padding: 42px;
+            border-radius: 18px;
+            box-shadow: 0 8px 28px rgba(0,0,0,0.06);
+            border-top: 5px solid var(--primary-olive);
+            text-align: right;
         }
 
-        /* --- قسم الخدمات --- */
+        .about-text strong {
+            color: var(--primary-olive);
+        }
+
         .services-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
+            gap: 28px;
             margin-top: 40px;
         }
 
         .service-card {
             background: #fff;
             padding: 30px;
-            border-radius: 15px;
+            border-radius: 18px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.05);
             border: 1px solid #eee;
-            transition: transform 0.3s, border-color 0.3s;
+            transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
+            text-align: center;
         }
 
         .service-card:hover {
-            transform: translateY(-10px);
+            transform: translateY(-8px);
             border-color: var(--accent-gold);
+            box-shadow: 0 16px 34px rgba(0,0,0,0.08);
         }
 
         .service-icon {
-            font-size: 3rem;
-            margin-bottom: 20px;
+            font-size: 2.8rem;
+            margin-bottom: 18px;
             display: block;
         }
 
         .service-card h3 {
-            margin-bottom: 15px;
-            font-size: 1.4rem;
+            margin-bottom: 14px;
+            font-size: 1.35rem;
+            font-weight: 900;
         }
 
-        /* --- قسم الاتصال والمعلومات --- */
+        .service-card p {
+            color: #4a4a4a;
+            font-size: 1rem;
+        }
+
         .contact-section {
-            background-color: var(--primary-olive);
+            background:
+                radial-gradient(circle at top right, rgba(218,165,32,0.18), transparent 35%),
+                var(--primary-olive);
             color: var(--text-light);
-            padding: 80px 5%;
-            margin-top: 80px;
+            padding: 85px 5%;
+            margin-top: 70px;
+        }
+
+        .contact-heading {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .contact-heading h2 {
+            color: var(--text-light);
+            font-size: 2.4rem;
+            margin-bottom: 8px;
+        }
+
+        .contact-heading p {
+            color: rgba(255,255,255,0.82);
         }
 
         .contact-container {
             display: flex;
             flex-wrap: wrap;
             justify-content: space-around;
-            gap: 40px;
+            gap: 30px;
             max-width: 1200px;
             margin: 0 auto;
         }
@@ -275,93 +367,152 @@
         .contact-box {
             flex: 1;
             min-width: 280px;
-            background: rgba(255,255,255,0.05);
+            background: rgba(255,255,255,0.07);
             padding: 30px;
-            border-radius: 15px;
+            border-radius: 18px;
             text-align: center;
-            border: 1px solid rgba(218, 165, 32, 0.3);
+            border: 1px solid rgba(218, 165, 32, 0.35);
             transition: transform 0.3s, background 0.3s;
         }
 
         .contact-box:hover {
             transform: translateY(-5px);
-            background: rgba(255,255,255,0.1);
+            background: rgba(255,255,255,0.12);
+        }
+
+        .contact-box .icon {
+            font-size: 2rem;
+            margin-bottom: 10px;
         }
 
         .contact-box h3 {
             color: var(--accent-gold);
             margin-bottom: 15px;
-            font-size: 1.3rem;
+            font-size: 1.28rem;
+            font-weight: 900;
         }
 
         .contact-box p {
-            font-size: 1.1rem;
+            font-size: 1.08rem;
             margin-bottom: 5px;
         }
 
         .phone-number {
-            font-size: 1.8rem;
-            font-weight: bold;
+            font-size: 1.65rem;
+            font-weight: 900;
             color: var(--text-light);
-            display: block;
-            margin-top: 10px;
-            text-decoration: none;
-            border-bottom: 2px dashed var(--accent-gold);
             display: inline-block;
+            margin-top: 10px;
+            border-bottom: 2px dashed var(--accent-gold);
+            direction: ltr;
         }
 
         .phone-number:hover {
             color: var(--accent-gold);
         }
 
-        /* --- الفوتر --- */
-        footer {
-            background-color: #222;
-            color: #888;
-            text-align: center;
-            padding: 20px;
-            border-top: 3px solid var(--accent-gold);
+        .map-button {
+            display: inline-block;
+            margin-top: 18px;
+            padding: 10px 22px;
+            border-radius: 30px;
+            background: var(--accent-gold);
+            color: var(--primary-dark);
+            font-weight: 900;
         }
 
-        /* --- التجاوب مع الموبايل --- */
+        .map-button:hover {
+            background: #fff;
+            transform: translateY(-2px);
+        }
+
+        footer {
+            background-color: #222;
+            color: #aaa;
+            text-align: center;
+            padding: 22px 10px;
+            border-top: 3px solid var(--accent-gold);
+            font-size: 0.95rem;
+        }
+
         @media (max-width: 900px) {
+            .nav-container {
+                flex-direction: column;
+                gap: 12px;
+            }
+
+            .nav-links {
+                gap: 14px;
+            }
+
+            .nav-links a {
+                font-size: 0.98rem;
+            }
+
             .hero {
                 flex-direction: column;
                 text-align: center;
-                padding-top: 40px;
+                padding: 45px 5% 60px;
+                gap: 35px;
             }
 
             .hero-logo {
-                width: 180px;
-                margin-bottom: 20px;
-            }
-
-            .hero-image img {
-                width: 100%;
-                box-shadow: 10px 10px 0px var(--primary-olive);
-                order: -1; /* صورة في الأعلى على الموبايل */
-                margin-bottom: 30px;
+                width: 145px;
+                height: 145px;
+                margin-bottom: 18px;
             }
 
             .hero h1 {
-                font-size: 2.2rem;
+                font-size: 2.25rem;
             }
 
-            .nav-container {
-                flex-direction: column;
-                gap: 15px;
+            .hero .title,
+            .hero .specialty {
+                font-size: 1.02rem;
+            }
+
+            .hero-image {
+                order: -1;
+                width: 100%;
+            }
+
+            .hero-image::before {
+                width: 82%;
+                height: 75%;
+                transform: translate(12px, 12px);
+            }
+
+            .hero-image img {
+                width: 92%;
+                box-shadow: 10px 10px 0px var(--primary-olive);
+                margin-bottom: 10px;
+            }
+
+            .section {
+                padding: 60px 5%;
+            }
+
+            .section h2 {
+                font-size: 2rem;
+            }
+
+            .about-text {
+                padding: 28px;
+                font-size: 1.05rem;
+            }
+
+            .contact-section {
+                padding: 65px 5%;
             }
         }
     </style>
 </head>
+
 <body>
 
-    <!-- القائمة العلوية -->
     <nav>
         <div class="nav-container">
-            <div class="logo-text" style="font-weight: bold; color: var(--primary-olive); font-size: 1.2rem;">
-                أ.د. رانيا الأحمدي
-            </div>
+            <div class="logo-text">أ.د. رانيا الأحمدي</div>
             <div class="nav-links">
                 <a href="#about">نبذة عن العيادة</a>
                 <a href="#services">الخدمات</a>
@@ -370,123 +521,141 @@
         </div>
     </nav>
 
-    <!-- واجهة رئيسية متوازية (لوجو + صورة) -->
     <section class="hero">
-        
-        <!-- الجانب الأيمن: اللوجو والمعلومات -->
+
         <div class="hero-content">
-            <!-- اللوجو (تم تحويله لـ SVG شفاف ومطابق لألوان الموقع بناءً على تصميمك) -->
+
             <div class="hero-logo">
-                <svg width="100%" height="100%" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
-                    <rect x="5" y="5" width="110" height="110" rx="25" fill="none" stroke="var(--accent-gold)" stroke-width="3"/>
-                    <circle cx="60" cy="60" r="45" fill="none" stroke="var(--primary-olive)" stroke-width="2"/>
-                    <circle cx="48" cy="85" r="8" fill="none" stroke="var(--primary-olive)" stroke-width="3"/>
-                    <circle cx="72" cy="85" r="8" fill="none" stroke="var(--primary-olive)" stroke-width="3"/>
-                    <path d="M52,78 L60,55 L55,25" fill="none" stroke="var(--primary-olive)" stroke-width="3" stroke-linecap="round"/>
-                    <path d="M68,78 L60,55 L65,25" fill="none" stroke="var(--primary-olive)" stroke-width="3" stroke-linecap="round"/>
-                    <circle cx="60" cy="55" r="3" fill="var(--primary-olive)"/>
-                    <path d="M30,45 Q60,15 90,45" fill="none" stroke="var(--primary-olive)" stroke-width="2"/>
-                    <line x1="38" y1="40" x2="35" y2="34" stroke="var(--primary-olive)" stroke-width="2" stroke-linecap="round"/>
-                    <line x1="48" y1="32" x2="46" y2="26" stroke="var(--primary-olive)" stroke-width="2" stroke-linecap="round"/>
-                    <line x1="60" y1="28" x2="60" y2="22" stroke="var(--primary-olive)" stroke-width="2" stroke-linecap="round"/>
-                    <line x1="72" y1="32" x2="74" y2="26" stroke="var(--primary-olive)" stroke-width="2" stroke-linecap="round"/>
-                    <line x1="82" y1="40" x2="85" y2="34" stroke="var(--primary-olive)" stroke-width="2" stroke-linecap="round"/>
-                </svg>
-            </div>
-            
-            <!-- الاسم واللقب -->
-            <h1>أ.د. رانيا الأحمدي</h1>
-            <div class="title">أستاذ الجراحة العامة - جامعة عين شمس</div>
-            
-            <!-- المميزة الأساسية -->
-            <div class="badge">
-                <span>🌸</span> طاقم طبي نسائي بالكامل لراحتكِ وخصوصيتكِ
+                <img src="logo-rania.png" alt="لوجو عيادة أ.د. رانيا الأحمدي">
             </div>
 
-            <!-- زر الحجز -->
-            <a href="tel:01012811106" class="cta-button">احجز موعدك الآن</a>
+            <h1>أ.د. رانيا الأحمدي</h1>
+
+            <div class="title">
+                أستاذ الجراحة العامة - كلية الطب - جامعة عين شمس
+            </div>
+
+            <div class="specialty">
+                استشاري جراحات الثدي والشرج والمناظير
+            </div>
+
+            <div class="clinic-phone">
+                <span>☎</span>
+                رقم العيادة:
+                <strong dir="ltr">010 0169 2691</strong>
+            </div>
+
+            <div class="badge">
+                <span>🌸</span>
+                طاقم طبي نسائي بالكامل لراحتكِ وخصوصيتكِ
+            </div>
+
+            <a href="tel:01012811106" class="cta-button">
+                احجز موعدك الآن
+            </a>
         </div>
 
-        <!-- الجانب الأيسر: صورة الدكتورة -->
         <div class="hero-image">
-            <img src="https://z-cdn-media.chatglm.cn/files/f34014bb-7f19-42e2-b724-0e5a480a0afa.png?auth_key=1877290118-240b82007bad49b8b790f8ef6046ab6f-0-2256496b575c0e1e21f5ee44841312ce" alt="أ.د. رانيا الأحمدي">
+            <img src="dr-rania.jpg" alt="أ.د. رانيا الأحمدي">
         </div>
 
     </section>
 
-    <!-- قسم نبذة عن العيادة -->
     <section id="about" class="section">
         <h2>الرعاية، الخصوصية، والطمأنينة</h2>
+
         <div class="about-text">
             <p>
-                أهلاً بكِ في عيادة أ.د. رانيا الأحمدي. نتفهم تماماً أهمية الخصوصية والراحة النفسية لمريضاتنا، لذلك رسالتنا الأساسية هي <strong>"رفع الحرج تماماً"</strong> عنكِ. نحرص دائمًا على تقديم الرعاية الطبية وإجراء العمليات الجراحية بواسطة <strong>طاقم طبي نسائي بالكامل بنسبة 100%</strong> (طبيبات تخدير، تمريض، وعاملات) سواء أثناء الكشف في العيادة أو داخل غرفة العمليات في أي مستشفى نتعاون معه. هدفنا أن تشعري بالأمان التام وبدون أي كسوف في كل خطوة من خطوات رحلة علاجك.
+                أهلاً بكِ في عيادة <strong>أ.د. رانيا الأحمدي</strong>.
+                نهتم بتقديم رعاية جراحية دقيقة في بيئة طبية تراعي خصوصية المريضة وراحتها النفسية.
+                نحرص على شرح الحالة بوضوح، وتحديد الخطة العلاجية المناسبة بعد التقييم الطبي،
+                مع توفير <strong>طاقم طبي نسائي بالكامل</strong> في العمليات قدر الإمكان، بما يمنح المريضة شعورًا أكبر بالأمان والاطمئنان.
             </p>
         </div>
     </section>
 
-    <!-- قسم الخدمات -->
     <section id="services" class="section">
         <h2>التخصصات الجراحية</h2>
+
         <div class="services-grid">
+
             <div class="service-card">
                 <span class="service-icon">🌿</span>
                 <h3>جراحات الشرج</h3>
-                <p>التخصص الدقيق لعيادتنا. تشخيص وعلاج جميع أمراض الشرج (البواسير، الشرخ الشرجي، والناسور بأنواعه) بأحدث الطرق الجراحية، مع ضمان الخصوصية التامة ورفع أي إحراج عن المريضة.</p>
+                <p>
+                    تقييم وتشخيص حالات البواسير، الشرخ الشرجي، والناسور، مع تحديد العلاج المناسب حسب كل حالة، سواء كان علاجًا دوائيًا أو تدخلًا جراحيًا عند الحاجة.
+                </p>
             </div>
+
             <div class="service-card">
                 <span class="service-icon">🩺</span>
                 <h3>جراحات الثدي</h3>
-                <p>رعاية طبية متكاملة تشمل تشخيص وعلاج جميع أورام الثدي والأمراض الحميدة، مع الاهتمام البالغ بالجانب النفسي والحفاظ على المظهر الجمالي.</p>
+                <p>
+                    متابعة وتشخيص أمراض الثدي الحميدة والجراحية، مع الاهتمام بالكشف المبكر، وشرح خطوات التقييم والعلاج للمريضة بوضوح وطمأنينة.
+                </p>
             </div>
+
             <div class="service-card">
                 <span class="service-icon">✂️</span>
                 <h3>الجراحات العامة والمناظير</h3>
-                <p>إجراء العمليات الجراحية الدقيقة بأمان تام، وتشمل: عمليات المرارة بالمنظار، استئصال الزائدة الدودية، وإصلاح الفتق بأنواعه لضمان سرعة التعافي.</p>
+                <p>
+                    إجراء الجراحات العامة وجراحات المناظير وفق التقييم الطبي المناسب، مع الحرص على الدقة وتقليل الألم وفترة التعافي قدر الإمكان.
+                </p>
             </div>
+
             <div class="service-card">
                 <span class="service-icon">🦋</span>
                 <h3>الغدة الدرقية والناسور العصعوصي</h3>
-                <p>خبرة واسعة في جراحات استئصال الغدة الدرقية، بالإضافة إلى علاج الناسور العصعوصي بأحدث التقنيات لضمان عدم الارتجاع والشفاء التام.</p>
+                <p>
+                    تقييم وعلاج بعض حالات الغدة الدرقية والناسور العصعوصي، مع تحديد الخطة الجراحية المناسبة لكل مريض بعد الفحص والتشخيص.
+                </p>
             </div>
+
         </div>
     </section>
 
-    <!-- قسم معلومات الاتصال -->
     <section id="contact" class="contact-section">
-        <div style="text-align: center; margin-bottom: 50px;">
-            <h2 style="color: var(--text-light);">معلومات التواصل</h2>
-            <p style="color: rgba(255,255,255,0.8);">نحن هنا لخدمتكم</p>
+
+        <div class="contact-heading">
+            <h2>معلومات التواصل</h2>
+            <p>يسعدنا استقبالكم في مواعيد العيادة</p>
         </div>
 
         <div class="contact-container">
-            <!-- العنوان -->
+
             <div class="contact-box">
-                <div style="font-size: 2rem; margin-bottom: 10px;">📍</div>
+                <div class="icon">📍</div>
                 <h3>العنوان</h3>
                 <p>شارع سيد زكريا، مساكن شيراتون، مصر الجديدة</p>
                 <p>بجوار النساجون الشرقيون - عمارة ٤</p>
+                <a class="map-button" href="https://maps.app.goo.gl/hWxyBvfbS4bBJuvs9" target="_blank" rel="noopener">
+                    افتح الموقع على الخريطة
+                </a>
             </div>
 
-            <!-- المواعيد -->
             <div class="contact-box">
-                <div style="font-size: 2rem; margin-bottom: 10px;">🕒</div>
+                <div class="icon">🕒</div>
                 <h3>مواعيد العيادة</h3>
                 <p>الأحد - الثلاثاء - الخميس</p>
                 <p><strong>من ٦ مساءً حتى ١١ مساءً</strong></p>
             </div>
 
-            <!-- الهاتف -->
             <div class="contact-box">
-                <div style="font-size: 2rem; margin-bottom: 10px;">📞</div>
-                <h3>للحجز والاستفسار</h3>
-                <a href="tel:01012811106" class="phone-number" dir="ltr">010 1281 1106</a>
+                <div class="icon">📞</div>
+                <h3>رقم السكرتيرة للحجز</h3>
+                <a href="tel:01012811106" class="phone-number">010 1281 1106</a>
+
+                <h3 style="margin-top: 25px;">رقم العيادة</h3>
+                <a href="tel:01001692691" class="phone-number">010 0169 2691</a>
             </div>
+
         </div>
     </section>
 
-    <!-- الفوتر -->
     <footer>
-        <p>جميع الحقوق محفوظة © 2024 عيادة أ.د. رانيا الأحمدي | الرعاية والطمأنينة</p>
+        <p>
+            جميع الحقوق محفوظة © 2026 عيادة أ.د. رانيا الأحمدي | الرعاية والطمأنينة
+        </p>
     </footer>
 
 </body>
