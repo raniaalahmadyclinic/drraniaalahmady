@@ -22,7 +22,7 @@
             --text-dark: #222;
             --text-muted: #555;
             --text-light: #fff;
-            --danger-red: #cf3e3e;
+            --whatsapp: #25D366;
         }
 
         * {
@@ -72,20 +72,10 @@
         }
 
         .brand-mini {
-            display: flex;
-            align-items: center;
-            gap: 10px;
             color: var(--primary-olive);
             font-weight: 900;
-            font-size: 1.12rem;
+            font-size: 1.18rem;
             white-space: nowrap;
-        }
-
-        .brand-mini img {
-            width: 42px;
-            height: 42px;
-            object-fit: contain;
-            mix-blend-mode: multiply;
         }
 
         .nav-links {
@@ -120,20 +110,6 @@
 
         .hero-content {
             text-align: right;
-        }
-
-        .hero-logo {
-            width: 135px;
-            height: 135px;
-            margin-bottom: 20px;
-        }
-
-        .hero-logo img {
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-            mix-blend-mode: multiply;
-            filter: drop-shadow(0 10px 20px rgba(0,0,0,0.12));
         }
 
         .hero-kicker {
@@ -206,7 +182,7 @@
         }
 
         .btn-whatsapp {
-            background: #25D366;
+            background: var(--whatsapp);
             color: #fff;
             box-shadow: 0 10px 24px rgba(37,211,102,0.22);
         }
@@ -277,7 +253,6 @@
         .info-card .icon {
             font-size: 2rem;
             margin-bottom: 8px;
-            color: var(--danger-red);
         }
 
         .info-card h3 {
@@ -543,6 +518,11 @@
             font-size: 1rem !important;
         }
 
+        .whatsapp-button {
+            background: var(--whatsapp);
+            color: #fff !important;
+        }
+
         .floating-whatsapp {
             position: fixed;
             left: 22px;
@@ -551,7 +531,7 @@
             width: 62px;
             height: 62px;
             border-radius: 50%;
-            background: #25D366;
+            background: var(--whatsapp);
             color: #fff;
             display: flex;
             align-items: center;
@@ -627,11 +607,6 @@
                 font-size: 2.25rem;
             }
 
-            .hero-logo {
-                width: 110px;
-                height: 110px;
-            }
-
             .about-box,
             .team-card {
                 padding: 26px;
@@ -648,10 +623,7 @@
 
     <nav>
         <div class="nav-container">
-            <div class="brand-mini">
-                <img src="logo-rania.png.png" alt="لوجو عيادة أ.د. رانيا الأحمدي">
-                <span>أ.د. رانيا الأحمدي</span>
-            </div>
+            <div class="brand-mini">أ.د. رانيا الأحمدي</div>
 
             <div class="nav-links">
                 <a href="#about">نبذة عن العيادة</a>
@@ -665,10 +637,6 @@
     <section class="hero">
 
         <div class="hero-content">
-            <div class="hero-logo">
-                <img src="logo-rania.png.png" alt="لوجو عيادة أ.د. رانيا الأحمدي">
-            </div>
-
             <span class="hero-kicker">رعاية جراحية دقيقة بخصوصية واطمئنان</span>
 
             <h1>أ.د. رانيا الأحمدي</h1>
@@ -689,11 +657,11 @@
             <div class="hero-actions">
                 <a href="tel:01012811106" class="btn btn-primary">احجز موعدك الآن</a>
 
-                <a href="https://wa.me/201001692691?text=مرحبًا، أرغب في الاستفسار عن الحجز في عيادة الدكتورة رانيا الأحمدي"
+                <a href="https://wa.me/201012811106?text=السلام عليكم، للتواصل والحجز فقط في عيادة الدكتورة رانيا الأحمدي."
                    target="_blank"
                    rel="noopener"
                    class="btn btn-whatsapp">
-                    واتساب العيادة
+                    واتساب السكرتيرة
                 </a>
 
                 <a href="#contact" class="btn btn-outline">المواعيد والعنوان</a>
@@ -879,27 +847,27 @@
                     <h3>رقم السكرتيرة للحجز</h3>
                     <a href="tel:01012811106">010 1281 1106</a>
 
-                    <h3 style="margin-top: 24px;">رقم العيادة / واتساب</h3>
-                    <a href="tel:01001692691">010 0169 2691</a>
-
                     <br>
 
-                    <a class="map-button"
-                       href="https://wa.me/201001692691?text=مرحبًا، أرغب في الاستفسار عن الحجز في عيادة الدكتورة رانيا الأحمدي"
+                    <a class="map-button whatsapp-button"
+                       href="https://wa.me/201012811106?text=السلام عليكم، للتواصل والحجز فقط في عيادة الدكتورة رانيا الأحمدي."
                        target="_blank"
                        rel="noopener">
-                        تواصل واتساب
+                        واتساب السكرتيرة
                     </a>
+
+                    <h3 style="margin-top: 24px;">رقم العيادة</h3>
+                    <a href="tel:01001692691">010 0169 2691</a>
                 </div>
             </div>
         </div>
     </section>
 
     <a class="floating-whatsapp"
-       href="https://wa.me/201001692691?text=مرحبًا، أرغب في الاستفسار عن الحجز في عيادة الدكتورة رانيا الأحمدي"
+       href="https://wa.me/201012811106?text=السلام عليكم، للتواصل والحجز فقط في عيادة الدكتورة رانيا الأحمدي."
        target="_blank"
        rel="noopener"
-       aria-label="تواصل واتساب مع العيادة">
+       aria-label="تواصل واتساب مع السكرتيرة للحجز">
         ☎
     </a>
 
