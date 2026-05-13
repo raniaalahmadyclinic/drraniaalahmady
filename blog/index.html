@@ -7,8 +7,27 @@
 
     <title>المدونة الطبية | أ.د. رانيا الأحمدي</title>
 
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-NDMVXJB439"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-NDMVXJB439');
+    </script>
+
     <meta name="description"
         content="مقالات طبية توعوية من أ.د. رانيا الأحمدي حول جراحات الثدي والشرج والمناظير والجراحة العامة.">
+
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://drraniasurgery.org/blog/">
+
+    <meta property="og:title" content="المدونة الطبية | أ.د. رانيا الأحمدي">
+    <meta property="og:description" content="مقالات طبية توعوية مبسطة حول الجراحة العامة وجراحات الثدي والشرج والمناظير.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://drraniasurgery.org/blog/">
+    <meta property="og:image" content="https://drraniasurgery.org/dr-rania.jpg.png">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -24,6 +43,24 @@
             color: #222;
         }
 
+        .topbar {
+            background: #fff;
+            padding: 16px 6%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 14px rgba(0,0,0,0.06);
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+
+        .topbar a {
+            color: #55712f;
+            text-decoration: none;
+            font-weight: 900;
+        }
+
         .hero {
             background: linear-gradient(135deg, #55712f, #263816);
             color: white;
@@ -32,21 +69,36 @@
         }
 
         .hero h1 {
-            font-size: 3rem;
+            font-size: clamp(2.1rem, 5vw, 3rem);
             margin-bottom: 15px;
         }
 
         .hero p {
             font-size: 1.1rem;
-            max-width: 700px;
+            max-width: 760px;
             margin: auto;
+            line-height: 1.9;
+        }
+
+        .notice {
+            max-width: 1050px;
+            margin: 30px auto 0;
+            padding: 0 20px;
+        }
+
+        .notice-box {
+            background: #f4ead0;
+            border-right: 5px solid #d6a640;
+            border-radius: 18px;
+            padding: 18px 22px;
+            color: #333;
             line-height: 1.9;
         }
 
         .articles {
             max-width: 1100px;
             margin: auto;
-            padding: 60px 20px;
+            padding: 45px 20px 60px;
             display: grid;
             grid-template-columns: repeat(auto-fit,minmax(280px,1fr));
             gap: 25px;
@@ -69,6 +121,7 @@
             width: 100%;
             height: 220px;
             object-fit: cover;
+            display: block;
         }
 
         .card-content {
@@ -79,11 +132,13 @@
             font-size: 1.3rem;
             margin-bottom: 12px;
             color: #263816;
+            line-height: 1.5;
         }
 
         .card p {
             color: #555;
             line-height: 1.8;
+            min-height: 90px;
         }
 
         .read-more {
@@ -97,16 +152,33 @@
             font-weight: bold;
         }
 
+        .read-more:hover {
+            background: #d6a640;
+            color: #263816;
+        }
+
         footer {
             background: #1d1d1d;
             color: #bbb;
             text-align: center;
             padding: 20px;
         }
+
+        @media (max-width: 650px) {
+            .topbar {
+                flex-direction: column;
+                gap: 8px;
+            }
+        }
     </style>
 </head>
 
 <body>
+
+    <nav class="topbar">
+        <a href="/">أ.د. رانيا الأحمدي</a>
+        <a href="/">العودة للصفحة الرئيسية</a>
+    </nav>
 
     <section class="hero">
         <h1>المدونة الطبية</h1>
@@ -117,62 +189,44 @@
         </p>
     </section>
 
-    <section class="articles">
-
-        <div class="card">
-            <img src="../dr-rania.jpg.png">
-
-            <div class="card-content">
-                <h2>متى يجب القلق من كتلة في الثدي؟</h2>
-
-                <p>
-                    علامات مهمة تستدعي الفحص المبكر وكيفية التفرقة بين الحالات البسيطة
-                    والحالات التي تحتاج تقييم طبي.
-                </p>
-
-                <a class="read-more" href="#">
-                    قراءة المقال
-                </a>
-            </div>
+    <section class="notice">
+        <div class="notice-box">
+            المحتوى الموجود في هذه المدونة للتوعية العامة فقط، ولا يغني عن الكشف الطبي أو استشارة الطبيب المختص.
         </div>
+    </section>
 
-        <div class="card">
-            <img src="../dr-rania-team.png">
-
-            <div class="card-content">
-                <h2>الفرق بين الشرخ والبواسير</h2>
-
-                <p>
-                    أعراض متشابهة لكن لكل حالة أسباب مختلفة وطرق علاج مختلفة.
-                </p>
-
-                <a class="read-more" href="#">
-                    قراءة المقال
-                </a>
-            </div>
-        </div>
-
-        <div class="card">
-            <img src="../dr-rania.jpg.png">
-
-            <div class="card-content">
-                <h2>مميزات الجراحة بالمنظار</h2>
-
-                <p>
-                    لماذا أصبحت جراحات المناظير خيارًا مفضلًا في كثير من الحالات؟
-                </p>
-
-                <a class="read-more" href="#">
-                    قراءة المقال
-                </a>
-            </div>
-        </div>
-
+    <section class="articles" id="articles-container">
+        <noscript>
+            يرجى تفعيل JavaScript لعرض المقالات.
+        </noscript>
     </section>
 
     <footer>
         جميع الحقوق محفوظة © 2026 أ.د. رانيا الأحمدي
     </footer>
+
+    <script src="articles.js"></script>
+
+    <script>
+        const container = document.getElementById("articles-container");
+
+        if (typeof articles !== "undefined" && Array.isArray(articles)) {
+            container.innerHTML = "";
+
+            articles.forEach(article => {
+                container.innerHTML += `
+                    <article class="card">
+                        <img src="${article.image}" alt="${article.title}">
+                        <div class="card-content">
+                            <h2>${article.title}</h2>
+                            <p>${article.description}</p>
+                            <a class="read-more" href="${article.link}">قراءة المقال</a>
+                        </div>
+                    </article>
+                `;
+            });
+        }
+    </script>
 
 </body>
 
