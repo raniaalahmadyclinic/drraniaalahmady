@@ -1,0 +1,152 @@
+name: Generate Articles JSON
+
+on:
+  push:
+    paths:
+      - "blog/*.html"
+      - ".github/workflows/generate-articles.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Generate blog/articles.json
+        run: |
+          python3 <<'PY'
+          import os
+          import re
+          import json
+          from html import unescape
+
+          BLOG_DIR = "blog"
+          OUTPUT_FILE = os.path.join(BLOG_DIR, "articles.json")
+
+          def read_file(path):
+              with open(path, "r", encoding="utf-8") as f:
+                  return f.read()
+
+          def clean(value):
+              value = unescape(value or "").strip()
+              value = re.sub(r"\s+", " ", value)
+              return value
+
+          def strip_tags(value):
+              return clean(re.sub(r"<.*?>", "", value or ""))
+
+          def extract_meta(html, name):
+              patterns = [
+                  rf'<meta\s+name=["\']{re.escape(name)}["\']\s+content=["\']([^"\']*)["\']',
+                  rf'<meta\s+property=["\']{re.escape(name)}["\']\s+content=["\']([^"\']*)["\']'
+              ]
+
+              for pattern in patterns:
+                  match = re.search(pattern, html, re.I | re.S)
+                  if match:
+                      return clean(match.group(1))
+
+              return ""
+
+          def extract_title(html):
+              og_title = extract_meta(html, "og:title")
+              if og_title:
+                  return clean(og_title.replace("| أ.د. رانيا الأحمدي", ""))
+
+              title_match = re.search(r"<title>(.*?)</title>", html, re.I | re.S)
+              if title_match:
+                  return clean(strip_tags(title_match.group(1)).replace("| أ.د. رانيا الأحمدي", ""))
+
+              h1_match = re.search(r"<h1[^>]*>(.*?)</h1>", html, re.I | re.S)
+              if h1_match:
+                  return strip_tags(h1_match.group(1))
+
+              return "مقال طبي"
+
+          def extract_description(html):
+              desc = extract_meta(html, "description")
+              if desc:
+                  return desc
+
+              og_desc = extract_meta(html, "og:description")
+              if og_desc:
+                  return og_desc
+
+              p_match = re.search(r"<p[^>]*>(.*?)</p>", html, re.I | re.S)
+              if p_match:
+                  text = strip_tags(p_match.group(1))
+                  return text[:180] + "..." if len(text) > 180 else text
+
+              return "مقال طبي توعوي من أ.د. رانيا الأحمدي."
+
+          def extract_image(html):
+              image = extract_meta(html, "og:image")
+              if image:
+                  image = image.replace("https://drraniasurgery.org/blog/", "")
+                  image = image.replace("https://drraniasurgery.org/", "../")
+                  return image
+
+              img_match = re.search(r'<img[^>]+src=["\']([^"\']+)["\']', html, re.I)
+              if img_match:
+                  return clean(img_match.group(1))
+
+              return "images/default-blog.jpg"
+
+          articles = []
+
+          if not os.path.isdir(BLOG_DIR):
+              print("Blog folder not found")
+              exit(0)
+
+          for filename in os.listdir(BLOG_DIR):
+              if not filename.endswith(".html"):
+                  continue
+
+              if filename.lower() in ["index.html"]:
+                  continue
+
+              path = os.path.join(BLOG_DIR, filename)
+              html = read_file(path)
+
+              number_raw = (
+                  extract_meta(html, "article:number")
+                  or extract_meta(html, "blog:number")
+                  or "999"
+              )
+
+              try:
+                  number = int(number_raw)
+              except:
+                  number = 999
+
+              article = {
+                  "number": number,
+                  "title": extract_title(html),
+                  "description": extract_description(html),
+                  "link": filename,
+                  "image": extract_image(html),
+                  "tag": extract_meta(html, "article:tag") or extract_meta(html, "blog:tag") or "مقال طبي",
+                  "readTime": extract_meta(html, "article:read_time") or extract_meta(html, "blog:read_time") or "قراءة قصيرة"
+              }
+
+              articles.append(article)
+
+          articles.sort(key=lambda item: item["number"])
+
+          with open(OUTPUT_FILE, "w", encoding="utf-8") as f:
+              json.dump(articles, f, ensure_ascii=False, indent=2)
+
+          print(f"Generated {OUTPUT_FILE} with {len(articles)} articles.")
+          PY
+
+      - name: Commit updated articles.json
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "Auto-generate blog articles.json"
+          file_pattern: blog/articles.json
