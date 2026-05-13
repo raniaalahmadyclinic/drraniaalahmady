@@ -12,8 +12,8 @@
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-NDMVXJB439');
+    gtag("js", new Date());
+    gtag("config", "G-NDMVXJB439");
   </script>
 
   <!-- Google AdSense -->
@@ -31,6 +31,7 @@
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://drraniasurgery.org/blog/">
   <meta property="og:image" content="https://drraniasurgery.org/dr-rania.jpg.png">
+  <meta property="og:locale" content="ar_EG">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -86,12 +87,13 @@
 
     .topbar a {
       color: var(--primary-olive);
-      text-decoration: none;
       font-weight: 900;
     }
 
     .hero {
-      background: linear-gradient(135deg, var(--primary-olive), var(--primary-dark));
+      background:
+        radial-gradient(circle at top left, rgba(214, 166, 64, 0.22), transparent 34%),
+        linear-gradient(135deg, var(--primary-olive), var(--primary-dark));
       color: white;
       padding: 80px 20px;
       text-align: center;
@@ -154,47 +156,29 @@
 
     .card-image-wrap {
       position: relative;
-      overflow: hidden;
-      background: #f4ead0;
-    }
-
-    ..card-image-wrap {
-    position: relative;
-    height: 280px;
-    background:
+      height: 285px;
+      background:
         radial-gradient(circle at top left, rgba(214, 166, 64, 0.18), transparent 35%),
         linear-gradient(135deg, #fffdf7, #f4ead0);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-}
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
 
-.card img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-    object-position: center center;
-    display: block;
-    padding: 0;
-    background: #f8f3e7;
-}
+    .card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
+      background: #f8f3e7;
+      transition: 0.35s ease;
+    }
 
-.card:hover img {
-    transform: scale(1.02);
-}
-
-.tag {
-    position: absolute;
-    top: 16px;
-    right: 16px;
-    background: rgba(38, 56, 22, 0.92);
-    color: #fff;
-    padding: 7px 14px;
-    border-radius: 999px;
-    font-size: 0.86rem;
-    font-weight: 900;
-}
+    .card:hover img {
+      transform: scale(1.03);
+    }
 
     .tag {
       position: absolute;
@@ -205,7 +189,8 @@
       padding: 7px 13px;
       border-radius: 999px;
       font-size: 0.82rem;
-      font-weight: 800;
+      font-weight: 900;
+      z-index: 2;
     }
 
     .card-content {
@@ -228,6 +213,7 @@
       line-height: 1.8;
       margin: 0;
       flex: 1;
+      font-size: 0.98rem;
     }
 
     .meta {
@@ -248,7 +234,6 @@
       color: white;
       padding: 10px 20px;
       border-radius: 999px;
-      text-decoration: none;
       font-weight: 900;
       text-align: center;
       transition: 0.25s ease;
@@ -260,7 +245,9 @@
     }
 
     .empty-state {
+      grid-column: 1 / -1;
       max-width: 700px;
+      width: 100%;
       margin: 40px auto;
       background: white;
       border: 1px solid var(--border);
@@ -291,8 +278,17 @@
         padding: 60px 18px;
       }
 
-      .card img {
-        height: 200px;
+      .card-image-wrap {
+        height: 240px;
+      }
+
+      .card h2 {
+        font-size: 1.18rem;
+      }
+
+      .meta {
+        flex-direction: column;
+        align-items: flex-start;
       }
     }
   </style>
@@ -341,6 +337,26 @@
         .replace(/'/g, "&#039;");
     }
 
+    function getAutoImage(article, index) {
+      const fallbackImages = [
+        "../dr-rania.jpg.png",
+        "../dr-rania-team.png"
+      ];
+
+      const currentImage = article.image || "";
+
+      if (
+        !currentImage ||
+        currentImage.includes("default-blog") ||
+        currentImage.includes("dr-rania.jpg.png") ||
+        currentImage.includes("dr-rania-team.png")
+      ) {
+        return fallbackImages[index % fallbackImages.length];
+      }
+
+      return currentImage;
+    }
+
     function renderArticles(articles) {
       container.innerHTML = "";
 
@@ -355,10 +371,10 @@
 
       articles
         .sort((a, b) => Number(a.number || 999) - Number(b.number || 999))
-        .forEach(article => {
+        .forEach((article, index) => {
           const title = escapeHTML(article.title);
           const description = escapeHTML(article.description || article.desc);
-          const image = escapeHTML(article.image || "images/default-blog.jpg");
+          const image = escapeHTML(getAutoImage(article, index));
           const link = escapeHTML(article.link || "#");
           const tag = escapeHTML(article.tag || "مقال طبي");
           const readTime = escapeHTML(article.readTime || "قراءة قصيرة");
