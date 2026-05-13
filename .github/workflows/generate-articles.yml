@@ -96,7 +96,7 @@ jobs:
               if img_match:
                   return clean(img_match.group(1))
 
-              return "images/default-blog.jpg"
+              return "../dr-rania.jpg.png"
 
           articles = []
 
