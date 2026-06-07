@@ -105,6 +105,138 @@
             color: var(--accent-gold);
         }
 
+        .latest-alert {
+            position: fixed;
+            top: 76px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: min(1100px, calc(100% - 28px));
+            z-index: 9999;
+            background:
+                radial-gradient(circle at top left, rgba(214,166,64,0.25), transparent 30%),
+                linear-gradient(135deg, #ffffff 0%, #f9f6e9 100%);
+            border: 1px solid rgba(214,166,64,0.55);
+            border-radius: 999px;
+            box-shadow: 0 12px 35px rgba(0,0,0,0.12);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 9px 12px;
+            animation:
+                latestSlideDown 0.45s ease both,
+                latestGlow 2.4s ease-in-out infinite;
+        }
+
+        .latest-alert.is-hidden {
+            display: none;
+        }
+
+        .latest-alert.is-paused {
+            animation: latestSlideDown 0.45s ease both;
+        }
+
+        .latest-alert-link {
+            flex: 1;
+            min-width: 0;
+            display: grid;
+            grid-template-columns: auto minmax(0, 1fr) auto;
+            align-items: center;
+            gap: 12px;
+            color: var(--primary-dark);
+        }
+
+        .latest-alert-badge {
+            background: var(--primary-olive);
+            color: #fff;
+            padding: 5px 13px;
+            border-radius: 999px;
+            font-size: 0.82rem;
+            font-weight: 900;
+            white-space: nowrap;
+        }
+
+        .latest-alert-text {
+            min-width: 0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .latest-alert-text strong {
+            color: var(--primary-dark);
+            font-size: 1rem;
+            font-weight: 900;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .latest-alert-text small {
+            color: var(--text-muted);
+            font-size: 0.86rem;
+            font-weight: 700;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .latest-alert-action {
+            background: var(--accent-gold);
+            color: var(--primary-dark);
+            padding: 7px 16px;
+            border-radius: 999px;
+            font-size: 0.9rem;
+            font-weight: 900;
+            white-space: nowrap;
+        }
+
+        .latest-alert-link:hover .latest-alert-action {
+            background: var(--primary-olive);
+            color: #fff;
+        }
+
+        .latest-alert-close {
+            width: 30px;
+            height: 30px;
+            border: 0;
+            border-radius: 50%;
+            background: rgba(38,56,22,0.10);
+            color: var(--primary-dark);
+            font-size: 1.25rem;
+            font-weight: 900;
+            cursor: pointer;
+            line-height: 1;
+        }
+
+        .latest-alert-close:hover {
+            background: var(--primary-dark);
+            color: #fff;
+        }
+
+        @keyframes latestSlideDown {
+            from {
+                opacity: 0;
+                transform: translate(-50%, -12px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translate(-50%, 0);
+            }
+        }
+
+        @keyframes latestGlow {
+            0%, 100% {
+                box-shadow: 0 12px 35px rgba(0,0,0,0.12);
+                border-color: rgba(214,166,64,0.45);
+            }
+
+            50% {
+                box-shadow: 0 12px 38px rgba(214,166,64,0.34);
+                border-color: rgba(214,166,64,0.95);
+            }
+        }
+
         .hero {
             min-height: 88vh;
             display: grid;
@@ -276,101 +408,6 @@
         .info-card a {
             color: #333;
             font-weight: 700;
-        }
-
-        .latest-article-strip {
-            padding: 38px 6% 0;
-            background: var(--bg-ivory);
-            position: relative;
-            z-index: 4;
-        }
-
-        .latest-article-strip.is-hidden {
-            display: none;
-        }
-
-        .latest-article-card {
-            max-width: 1150px;
-            margin: auto;
-            display: grid;
-            grid-template-columns: 140px 1fr auto;
-            align-items: center;
-            gap: 22px;
-            background:
-                radial-gradient(circle at top left, rgba(214,166,64,0.18), transparent 32%),
-                linear-gradient(135deg, #ffffff 0%, #f9f6e9 100%);
-            border: 1px solid rgba(214,166,64,0.35);
-            border-radius: 28px;
-            padding: 18px 22px;
-            box-shadow: 0 12px 30px rgba(0,0,0,0.07);
-        }
-
-        .latest-article-card:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 16px 36px rgba(0,0,0,0.09);
-        }
-
-        .latest-article-image {
-            width: 140px;
-            height: 92px;
-            border-radius: 20px;
-            overflow: hidden;
-            background: var(--soft-gold);
-            border: 2px solid rgba(214,166,64,0.45);
-        }
-
-        .latest-article-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            object-position: center top;
-            display: block;
-        }
-
-        .latest-article-content {
-            min-width: 0;
-        }
-
-        .latest-article-badge {
-            display: inline-block;
-            background: var(--primary-olive);
-            color: #fff;
-            padding: 5px 13px;
-            border-radius: 999px;
-            font-size: 0.82rem;
-            font-weight: 900;
-            margin-bottom: 7px;
-        }
-
-        .latest-article-content h2 {
-            color: var(--primary-dark);
-            font-size: 1.35rem;
-            font-weight: 900;
-            margin-bottom: 5px;
-            line-height: 1.45;
-        }
-
-        .latest-article-content p {
-            color: var(--text-muted);
-            font-size: 0.98rem;
-            line-height: 1.7;
-        }
-
-        .latest-article-btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            background: var(--accent-gold);
-            color: var(--primary-dark);
-            padding: 11px 22px;
-            border-radius: 999px;
-            font-weight: 900;
-            white-space: nowrap;
-        }
-
-        .latest-article-card:hover .latest-article-btn {
-            background: var(--primary-olive);
-            color: #fff;
         }
 
         .section {
@@ -751,20 +788,6 @@
                 margin-top: 0;
                 padding-top: 35px;
             }
-
-            .latest-article-card {
-                grid-template-columns: 1fr;
-                text-align: center;
-            }
-
-            .latest-article-image {
-                width: 100%;
-                height: 240px;
-            }
-
-            .latest-article-btn {
-                width: 100%;
-            }
         }
 
         @media (max-width: 650px) {
@@ -779,6 +802,47 @@
 
             .nav-links a {
                 font-size: 0.95rem;
+            }
+
+            .latest-alert {
+                top: 118px;
+                width: calc(100% - 18px);
+                border-radius: 22px;
+                padding: 10px;
+            }
+
+            .latest-alert-link {
+                grid-template-columns: auto minmax(0, 1fr);
+                gap: 9px;
+            }
+
+            .latest-alert-text {
+                display: block;
+            }
+
+            .latest-alert-text strong {
+                display: block;
+                font-size: 0.9rem;
+                line-height: 1.5;
+            }
+
+            .latest-alert-text small {
+                display: block;
+                font-size: 0.76rem;
+                line-height: 1.5;
+            }
+
+            .latest-alert-action {
+                grid-column: 1 / -1;
+                text-align: center;
+                padding: 6px 12px;
+                font-size: 0.82rem;
+            }
+
+            .latest-alert-close {
+                width: 28px;
+                height: 28px;
+                font-size: 1.1rem;
             }
 
             .hero {
@@ -796,27 +860,6 @@
 
             .section {
                 padding: 65px 5%;
-            }
-
-            .latest-article-strip {
-                padding: 28px 5% 0;
-            }
-
-            .latest-article-card {
-                padding: 20px;
-                border-radius: 24px;
-            }
-
-            .latest-article-image {
-                height: 190px;
-            }
-
-            .latest-article-content h2 {
-                font-size: 1.2rem;
-            }
-
-            .latest-article-content p {
-                font-size: 0.94rem;
             }
         }
     </style>
@@ -837,6 +880,23 @@
             </div>
         </div>
     </nav>
+
+    <div class="latest-alert is-hidden" id="latestArticleStrip">
+        <a class="latest-alert-link" id="latestArticleLink" href="/blog/">
+            <span class="latest-alert-badge">جديد</span>
+
+            <span class="latest-alert-text">
+                <strong id="latestArticleTitle">أحدث مقال في المدونة الطبية</strong>
+                <small id="latestArticleDescription">اقرئي أحدث المقالات الطبية التوعوية من العيادة.</small>
+            </span>
+
+            <span class="latest-alert-action">اقرئي الآن</span>
+        </a>
+
+        <button class="latest-alert-close" type="button" id="latestArticleClose" aria-label="إغلاق التنبيه">
+            ×
+        </button>
+    </div>
 
     <section class="hero">
 
@@ -898,26 +958,6 @@
             <a href="tel:01012811106" dir="ltr">010 1281 1106</a>
         </div>
     </div>
-
-    <section class="latest-article-strip is-hidden" id="latestArticleStrip">
-        <a class="latest-article-card" id="latestArticleLink" href="/blog/">
-            <div class="latest-article-image">
-                <img id="latestArticleImage" src="dr-rania.jpg.png" alt="أحدث مقال في المدونة الطبية">
-            </div>
-
-            <div class="latest-article-content">
-                <span class="latest-article-badge">جديد في المدونة الطبية</span>
-                <h2 id="latestArticleTitle">أحدث مقالات أ.د. رانيا الأحمدي</h2>
-                <p id="latestArticleDescription">
-                    اقرئي أحدث المقالات الطبية التوعوية من العيادة.
-                </p>
-            </div>
-
-            <span class="latest-article-btn">
-                قراءة المقال
-            </span>
-        </a>
-    </section>
 
     <section id="leadership" class="section team-section">
         <div class="container">
@@ -1148,11 +1188,14 @@
         (function () {
             const strip = document.getElementById("latestArticleStrip");
             const link = document.getElementById("latestArticleLink");
-            const image = document.getElementById("latestArticleImage");
             const title = document.getElementById("latestArticleTitle");
             const description = document.getElementById("latestArticleDescription");
+            const closeBtn = document.getElementById("latestArticleClose");
 
-            if (!strip || !link || !image || !title || !description) return;
+            if (!strip || !link || !title || !description) return;
+
+            let closedByUser = false;
+            let latestArticleReady = false;
 
             function cleanText(value) {
                 return String(value || "")
@@ -1175,27 +1218,54 @@
                 return "/blog/" + articleLink.replace(/^\/+/, "");
             }
 
-            function normalizeImage(imagePath) {
-                if (!imagePath) return "dr-rania.jpg.png";
-
-                if (imagePath.startsWith("http")) {
-                    return imagePath;
-                }
-
-                if (imagePath.startsWith("../")) {
-                    return imagePath.replace("../", "");
-                }
-
-                if (imagePath.startsWith("/")) {
-                    return imagePath;
-                }
-
-                if (imagePath.startsWith("images/")) {
-                    return "blog/" + imagePath;
-                }
-
-                return imagePath.replace(/^\/+/, "");
+            function showStrip() {
+                if (closedByUser || !latestArticleReady) return;
+                strip.classList.remove("is-hidden");
             }
+
+            function hideStrip() {
+                strip.classList.add("is-hidden");
+            }
+
+            function startFlashCycle() {
+                showStrip();
+
+                setTimeout(function () {
+                    if (!closedByUser) {
+                        hideStrip();
+                    }
+                }, 6500);
+
+                setInterval(function () {
+                    if (closedByUser || !latestArticleReady) return;
+
+                    showStrip();
+
+                    setTimeout(function () {
+                        if (!closedByUser) {
+                            hideStrip();
+                        }
+                    }, 6500);
+
+                }, 14000);
+            }
+
+            if (closeBtn) {
+                closeBtn.addEventListener("click", function (event) {
+                    event.preventDefault();
+                    event.stopPropagation();
+                    closedByUser = true;
+                    hideStrip();
+                });
+            }
+
+            strip.addEventListener("mouseenter", function () {
+                strip.classList.add("is-paused");
+            });
+
+            strip.addEventListener("mouseleave", function () {
+                strip.classList.remove("is-paused");
+            });
 
             fetch("/blog/articles.json?v=" + Date.now())
                 .then(function (response) {
@@ -1218,15 +1288,19 @@
                     if (!latestArticle) return;
 
                     title.textContent = cleanText(latestArticle.title);
-                    description.textContent = cleanText(latestArticle.description || latestArticle.desc || "اقرئي أحدث المقالات الطبية التوعوية من العيادة.");
-                    link.href = normalizeArticleLink(latestArticle.link);
-                    image.src = normalizeImage(latestArticle.image);
-                    image.alt = title.textContent;
+                    description.textContent = cleanText(
+                        latestArticle.description ||
+                        latestArticle.desc ||
+                        "اقرئي أحدث المقالات الطبية التوعوية من العيادة."
+                    );
 
-                    strip.classList.remove("is-hidden");
+                    link.href = normalizeArticleLink(latestArticle.link);
+
+                    latestArticleReady = true;
+                    startFlashCycle();
                 })
                 .catch(function () {
-                    strip.classList.add("is-hidden");
+                    hideStrip();
                 });
         })();
     </script>
