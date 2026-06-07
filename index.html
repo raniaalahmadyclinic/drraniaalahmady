@@ -278,6 +278,101 @@
             font-weight: 700;
         }
 
+        .latest-article-strip {
+            padding: 38px 6% 0;
+            background: var(--bg-ivory);
+            position: relative;
+            z-index: 4;
+        }
+
+        .latest-article-strip.is-hidden {
+            display: none;
+        }
+
+        .latest-article-card {
+            max-width: 1150px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: 140px 1fr auto;
+            align-items: center;
+            gap: 22px;
+            background:
+                radial-gradient(circle at top left, rgba(214,166,64,0.18), transparent 32%),
+                linear-gradient(135deg, #ffffff 0%, #f9f6e9 100%);
+            border: 1px solid rgba(214,166,64,0.35);
+            border-radius: 28px;
+            padding: 18px 22px;
+            box-shadow: 0 12px 30px rgba(0,0,0,0.07);
+        }
+
+        .latest-article-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 16px 36px rgba(0,0,0,0.09);
+        }
+
+        .latest-article-image {
+            width: 140px;
+            height: 92px;
+            border-radius: 20px;
+            overflow: hidden;
+            background: var(--soft-gold);
+            border: 2px solid rgba(214,166,64,0.45);
+        }
+
+        .latest-article-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center top;
+            display: block;
+        }
+
+        .latest-article-content {
+            min-width: 0;
+        }
+
+        .latest-article-badge {
+            display: inline-block;
+            background: var(--primary-olive);
+            color: #fff;
+            padding: 5px 13px;
+            border-radius: 999px;
+            font-size: 0.82rem;
+            font-weight: 900;
+            margin-bottom: 7px;
+        }
+
+        .latest-article-content h2 {
+            color: var(--primary-dark);
+            font-size: 1.35rem;
+            font-weight: 900;
+            margin-bottom: 5px;
+            line-height: 1.45;
+        }
+
+        .latest-article-content p {
+            color: var(--text-muted);
+            font-size: 0.98rem;
+            line-height: 1.7;
+        }
+
+        .latest-article-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--accent-gold);
+            color: var(--primary-dark);
+            padding: 11px 22px;
+            border-radius: 999px;
+            font-weight: 900;
+            white-space: nowrap;
+        }
+
+        .latest-article-card:hover .latest-article-btn {
+            background: var(--primary-olive);
+            color: #fff;
+        }
+
         .section {
             padding: 85px 6%;
         }
@@ -656,6 +751,20 @@
                 margin-top: 0;
                 padding-top: 35px;
             }
+
+            .latest-article-card {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .latest-article-image {
+                width: 100%;
+                height: 240px;
+            }
+
+            .latest-article-btn {
+                width: 100%;
+            }
         }
 
         @media (max-width: 650px) {
@@ -665,6 +774,7 @@
 
             .nav-links {
                 gap: 14px;
+                justify-content: center;
             }
 
             .nav-links a {
@@ -686,6 +796,27 @@
 
             .section {
                 padding: 65px 5%;
+            }
+
+            .latest-article-strip {
+                padding: 28px 5% 0;
+            }
+
+            .latest-article-card {
+                padding: 20px;
+                border-radius: 24px;
+            }
+
+            .latest-article-image {
+                height: 190px;
+            }
+
+            .latest-article-content h2 {
+                font-size: 1.2rem;
+            }
+
+            .latest-article-content p {
+                font-size: 0.94rem;
             }
         }
     </style>
@@ -768,6 +899,26 @@
         </div>
     </div>
 
+    <section class="latest-article-strip is-hidden" id="latestArticleStrip">
+        <a class="latest-article-card" id="latestArticleLink" href="/blog/">
+            <div class="latest-article-image">
+                <img id="latestArticleImage" src="dr-rania.jpg.png" alt="أحدث مقال في المدونة الطبية">
+            </div>
+
+            <div class="latest-article-content">
+                <span class="latest-article-badge">جديد في المدونة الطبية</span>
+                <h2 id="latestArticleTitle">أحدث مقالات أ.د. رانيا الأحمدي</h2>
+                <p id="latestArticleDescription">
+                    اقرئي أحدث المقالات الطبية التوعوية من العيادة.
+                </p>
+            </div>
+
+            <span class="latest-article-btn">
+                قراءة المقال
+            </span>
+        </a>
+    </section>
+
     <section id="leadership" class="section team-section">
         <div class="container">
             <div class="team-card">
@@ -840,7 +991,7 @@
 
                     <div class="highlight">
                         <h3>طاقم نسائي متكامل</h3>
-                        <p>إجراء العمليات بالتعاون مع طاقم طبي نسائي متكامل    </p>
+                        <p>إجراء العمليات بالتعاون مع طاقم طبي نسائي متكامل</p>
                     </div>
                 </div>
             </div>
@@ -992,6 +1143,93 @@
     <footer>
         <p>جميع الحقوق محفوظة © 2026 عيادة أ.د. رانيا الأحمدي | الرعاية والطمأنينة</p>
     </footer>
+
+    <script>
+        (function () {
+            const strip = document.getElementById("latestArticleStrip");
+            const link = document.getElementById("latestArticleLink");
+            const image = document.getElementById("latestArticleImage");
+            const title = document.getElementById("latestArticleTitle");
+            const description = document.getElementById("latestArticleDescription");
+
+            if (!strip || !link || !image || !title || !description) return;
+
+            function cleanText(value) {
+                return String(value || "")
+                    .replace(/\s+/g, " ")
+                    .replace(" | أ.د. رانيا الأحمدي", "")
+                    .trim();
+            }
+
+            function normalizeArticleLink(articleLink) {
+                if (!articleLink) return "/blog/";
+
+                if (articleLink.startsWith("http")) {
+                    return articleLink;
+                }
+
+                if (articleLink.startsWith("/blog/")) {
+                    return articleLink;
+                }
+
+                return "/blog/" + articleLink.replace(/^\/+/, "");
+            }
+
+            function normalizeImage(imagePath) {
+                if (!imagePath) return "dr-rania.jpg.png";
+
+                if (imagePath.startsWith("http")) {
+                    return imagePath;
+                }
+
+                if (imagePath.startsWith("../")) {
+                    return imagePath.replace("../", "");
+                }
+
+                if (imagePath.startsWith("/")) {
+                    return imagePath;
+                }
+
+                if (imagePath.startsWith("images/")) {
+                    return "blog/" + imagePath;
+                }
+
+                return imagePath.replace(/^\/+/, "");
+            }
+
+            fetch("/blog/articles.json?v=" + Date.now())
+                .then(function (response) {
+                    if (!response.ok) {
+                        throw new Error("articles.json not found");
+                    }
+                    return response.json();
+                })
+                .then(function (articles) {
+                    if (!Array.isArray(articles) || articles.length === 0) return;
+
+                    const latestArticle = articles
+                        .filter(function (article) {
+                            return article && article.title && article.link;
+                        })
+                        .sort(function (a, b) {
+                            return Number(b.number || 0) - Number(a.number || 0);
+                        })[0];
+
+                    if (!latestArticle) return;
+
+                    title.textContent = cleanText(latestArticle.title);
+                    description.textContent = cleanText(latestArticle.description || latestArticle.desc || "اقرئي أحدث المقالات الطبية التوعوية من العيادة.");
+                    link.href = normalizeArticleLink(latestArticle.link);
+                    image.src = normalizeImage(latestArticle.image);
+                    image.alt = title.textContent;
+
+                    strip.classList.remove("is-hidden");
+                })
+                .catch(function () {
+                    strip.classList.add("is-hidden");
+                });
+        })();
+    </script>
 
 </body>
 </html>
