@@ -128,6 +128,31 @@
       font-weight: 600;
     }
 
+    .topic-links {
+      max-width: 1100px;
+      margin: 28px auto 0;
+      padding: 0 20px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: center;
+    }
+
+    .topic-links a {
+      display: inline-block;
+      padding: 9px 14px;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      background: #fff;
+      color: var(--primary-dark);
+      font-weight: 800;
+    }
+
+    .topic-links a:hover {
+      border-color: var(--accent-gold);
+      background: var(--soft-gold);
+    }
+
     .articles {
       max-width: 1100px;
       margin: auto;
@@ -292,6 +317,27 @@
       }
     }
   </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "الرئيسية",
+        "item": "https://drraniasurgery.org/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "المدونة الطبية",
+        "item": "https://drraniasurgery.org/blog/"
+      }
+    ]
+  }
+  </script>
+
 </head>
 
 <body>
@@ -314,6 +360,16 @@
       المحتوى الموجود في هذه المدونة للتوعية العامة فقط، ولا يغني عن الكشف الطبي أو استشارة الطبيب المختص.
     </div>
   </section>
+
+  <nav class="topic-links" aria-label="أقسام ومقالات المدونة">
+    <a href="breast-lump-warning-signs.html">كتلة في الثدي</a>
+    <a href="breast-diseases-general-surgery.html">أمراض الثدي والجراحة العامة</a>
+    <a href="breast-lump-after-breastfeeding.html">كتلة الثدي أثناء الرضاعة</a>
+    <a href="anal-fissure-vs-hemorrhoids.html">الشرخ الشرجي والبواسير</a>
+    <a href="rectal-bleeding-warning-signs.html">النزيف الشرجي</a>
+    <a href="after-hemorrhoid-surgery-care.html">التعافي بعد عملية البواسير</a>
+    <a href="when-to-see-general-surgeon.html">متى أذهب لطبيب الجراحة العامة؟</a>
+  </nav>
 
   <section class="articles" id="articles-container">
     <noscript>
